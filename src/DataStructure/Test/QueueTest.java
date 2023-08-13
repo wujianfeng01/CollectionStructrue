@@ -28,8 +28,8 @@ public class QueueTest {
         System.out.println(queueBaseOnArray.length());
 
         // 出队测试
-        int nums = queueBaseOnArray.length();
-        for (int i = 0; i < nums; i++) {
+        int size = queueBaseOnArray.length();
+        for (int i = 0; i < size; i++) {
             System.out.print(queueBaseOnArray.pop()+" ");
         }
         System.out.println();
