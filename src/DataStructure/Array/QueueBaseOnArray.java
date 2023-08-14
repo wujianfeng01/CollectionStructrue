@@ -26,7 +26,10 @@ public class QueueBaseOnArray {
     private int index(int i){
         // 当 i 越过数组尾部后，回到头部
         return i%capacity();
-
+        /**
+         * 如果是基于数组的双端队列，因为有 i 越过数组头部后，回到尾部的情况
+         * 所以该方法return为： (i+capacity())%capacity();
+         */
     }
     /* 入队操作 */
     public void push(int val) {
