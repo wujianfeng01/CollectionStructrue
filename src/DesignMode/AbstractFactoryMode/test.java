@@ -9,8 +9,8 @@ import DesignMode.AbstractFactoryMode.FactoryAndProducts.Product;
 public class test {
     public static void main(String[] args) {
         // 获取不同工厂
-        Factory factoryA = AbstractFactoryMode.getFactory("A");
-        Factory factoryB = AbstractFactoryMode.getFactory("B");
+        Factory factoryA = AbstractFactoryMode.getFactory("InheritedTest.A");
+        Factory factoryB = AbstractFactoryMode.getFactory("InheritedTest.B");
         Factory factoryC = AbstractFactoryMode.getFactory("C");
         // 获取不同工厂下的A产品
         Product fromFactoryAPdA = factoryA.getProduct("FromFactoryAPdA");

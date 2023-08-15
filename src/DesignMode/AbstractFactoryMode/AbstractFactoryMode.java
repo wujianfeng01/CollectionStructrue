@@ -16,8 +16,8 @@ public class AbstractFactoryMode {
      */
     public static Factory getFactory(String factory) {
         switch (factory){
-            case "A":return new FactoryA();
-            case "B":return new FactoryB();
+            case "InheritedTest.A":return new FactoryA();
+            case "InheritedTest.B":return new FactoryB();
             case "C":return new FactoryC();
             default:return null;
         }
