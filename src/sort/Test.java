@@ -2,7 +2,7 @@ package sort;
 
 public class Test {
     public static void main(String[] args) {
-        int[] arr = {2,5,6,1,4,0,2,3,5,6,7,8,9,0,1};
+        int[] arr = {5,4,2,1,0,3};
         QuickSort.doSort(arr);
         for (int i :
                 arr) {
