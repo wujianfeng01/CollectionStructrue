@@ -9,8 +9,7 @@ import java.lang.annotation.Target;
  * 定义自己的注解 @ValueInfo
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 public @interface ValueInfo {
-    String name();
-    int age();
+    String version();
 }
