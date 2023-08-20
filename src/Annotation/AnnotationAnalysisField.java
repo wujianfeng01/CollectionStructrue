@@ -2,7 +2,6 @@ package Annotation;
 
 import Annotation.Annotations.SelfAutowired;
 import Annotation.Annotations.ValueInfo;
-import Annotation.Interface.Animal;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -10,16 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 基于反射的注解分析类
+ * 基于反射的属性注解解析类
  */
-public class AnnotationAnalysis {
+public class AnnotationAnalysisField {
     /**
      * 注解分析方法
      * @param className  需要进行注解分析的主类
      * @return
      * @throws Exception
      */
-    static List<Object> analysis(String className) throws Exception{
+    static List<Object> doAnalysis(String className) throws Exception{
         Class<?> aClass = Class.forName(className);     // 获取需要分析注解的Class对象
         Field[] fields = aClass.getDeclaredFields();    // 获取类属性数组
         List<Object> list = new ArrayList<>();          // 结果链表
@@ -34,9 +33,10 @@ public class AnnotationAnalysis {
      * @param fields  属性数组
      * @throws ClassNotFoundException
      */
-    public static void autowiredFields(List<Object> list,Field[] fields) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    private static void autowiredFields(List<Object> list,Field[] fields) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         for (Field f : fields) {     // 获取所有属性变量
-            Annotation[] declaredAnnotations = f.getDeclaredAnnotations();   // 获取属性的所有注解
+            Annotation[] declaredAnnotations = getAnnotation(f);   // 获取属性的所有注解
+
             if (declaredAnnotations!=null&&declaredAnnotations.length>=1){
                 for (int i = 0; i < declaredAnnotations.length; i++) {
                     Annotation annotation = declaredAnnotations[i];
@@ -52,7 +52,17 @@ public class AnnotationAnalysis {
                     }
                 }
             }
-
         }
     }
+
+    /**
+     * 返回属性的注解数组
+     * @param f
+     * @return
+     */
+    private static Annotation[] getAnnotation(Field f){
+        return f.getDeclaredAnnotations();
+
+    }
+
 }

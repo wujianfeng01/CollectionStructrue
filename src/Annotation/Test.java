@@ -3,7 +3,6 @@ package Annotation;
 import Annotation.Annotations.SelfAutowired;
 import Annotation.Annotations.ValueInfo;
 import Annotation.Interface.Animal;
-import Annotation.Interface.Impl.Cat;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -20,8 +19,8 @@ public class Test {
     @ValueInfo(version = "Test_Field_annotation_version_1")
     public String testInfo;
     public Test() throws Exception {
-        // 通过AnnotationAnalysis.analysis()方法返回@SelfAutowired注解的实例list
-        List<Object> objectList = AnnotationAnalysis.analysis("Annotation.Test");
+        // 通过AnnotationAnalysis.analysis()方法返回当前类属性注解的实例实例列表
+        List<Object> objectList = AnnotationAnalysisField.doAnalysis("Annotation.Test");
         // 获取当前类的属性数组
         Field[] declaredFields = this.getClass().getDeclaredFields();
         for (int i = 0; i < objectList.size(); i++) {
